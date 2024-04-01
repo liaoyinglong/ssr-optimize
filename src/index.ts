@@ -1,1 +1,2 @@
-console.log('hello tsup');
+export * from "./next";
+export * from "./shared";
