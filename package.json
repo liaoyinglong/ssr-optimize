@@ -17,7 +17,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./faker": "./dist/faker.js",
+    "./mock": "./dist/mock.js",
     "./next": "./dist/next.js",
     "./shared": "./dist/shared.js",
     "./package.json": "./package.json"
@@ -32,8 +32,8 @@
     "build": "tsup --clean --splitting",
     "dev": "tsup --splitting --watch",
     "prepare": "husky install",
-    "release": "pnpm build && pnpm test:faker && bumpp && pnpm publish",
-    "test:faker": "node --test"
+    "release": "pnpm build && pnpm test:mock && bumpp && pnpm publish",
+    "test:mock": "node --test"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,json}": "prettier --write"

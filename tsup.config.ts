@@ -9,8 +9,8 @@ export default defineConfig([
     entry: ["src/index.ts", "src/next.ts", "src/shared.ts"],
     dts: true,
     async onSuccess() {
-      // copy src/faker.js to dist/faker.js
-      await fs.copyFile("src/faker.js", "dist/faker.js");
+      // copy src/mock.js to dist/mock.js
+      await fs.copyFile("src/mock.js", "dist/mock.js");
     },
   },
 ]);

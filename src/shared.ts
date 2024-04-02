@@ -3,8 +3,8 @@ import { Configuration } from "webpack";
 export interface OptimizeOptions {
   /**
    * `key` is the path of the dependency, will set to `webpack.resolve.alias` key
-   * `value` is the faker module implementation path
-   * if set `true`, will use default faker, see implementation in `src/faker.ts`
+   * `value` is the mock module implementation path
+   * if set `true`, will use default mock, see implementation in `src/mock.ts`
    * if set `false`, will make webpack to import a empty module
    */
   deps: Record<string, string | boolean>;
@@ -18,7 +18,7 @@ export interface OptimizeOptions {
 
 export const optimizeSSRDeps = (options: OptimizeOptions) => {
   const { config, deps } = options;
-  const defaultFaker = require.resolve("./mock");
+  const defaultMock = require.resolve("./mock");
 
   if (!config.resolve) {
     config.resolve = {
@@ -34,7 +34,7 @@ export const optimizeSSRDeps = (options: OptimizeOptions) => {
   let pkgs = "";
   // update webpack.resolve.alias
   Object.entries(deps).forEach(([key, value]) => {
-    alias[key] = value === true ? defaultFaker : value;
+    alias[key] = value === true ? defaultMock : value;
     pkgs += `     - ${key}\n`;
   });
 
