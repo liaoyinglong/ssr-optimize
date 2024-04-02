@@ -39,7 +39,7 @@ export const optimizeSSRDeps = (options: OptimizeOptions) => {
   });
 
   logOnce(`
-  ⚡ these package not need import in server, use fake instead and can make more fast in server:
+  ⚡ these package not need import in server, use mocked instead and can make more fast in server:
 ${pkgs}`);
 };
 
