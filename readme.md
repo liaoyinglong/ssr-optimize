@@ -54,7 +54,7 @@ module.exports = withSSROptimize({
 
 ## 对比
 
-这里给出部分对比数据，感兴趣可以 `clone` `example/next-js` 查看。
+这里给出部分对比数据，感兴趣可以运行 `example/next-js` 查看。
 
 ### next dev
 
