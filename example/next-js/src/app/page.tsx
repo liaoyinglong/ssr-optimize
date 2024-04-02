@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Web3ModalTrigger } from "./web3modal";
+import { Web3Modal } from "./web3modal";
 
 export default function Home() {
   return (
@@ -30,16 +30,7 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-
-        <Web3ModalTrigger />
+        <Web3Modal />
       </div>
 
       <div className={styles.grid}>
