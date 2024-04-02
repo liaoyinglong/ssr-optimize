@@ -35,12 +35,12 @@ export const optimizeSSRDeps = (options: OptimizeOptions) => {
   // update webpack.resolve.alias
   Object.entries(deps).forEach(([key, value]) => {
     alias[key] = value === true ? defaultFaker : value;
-    pkgs += `  - ${key}\n`;
+    pkgs += `     - ${key}\n`;
   });
 
   logOnce(`
   ⚡ these package not need import in server, use fake instead and can make more fast in server:
-  ${pkgs}`);
+${pkgs}`);
 };
 
 const logOnce = (function () {
