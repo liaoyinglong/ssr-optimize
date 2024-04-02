@@ -27,7 +27,7 @@ module.exports = withSSROptimize({
   deps: {
     // 添加想要 mock 的依赖
     // key 会设置为 webpack.resolve.alias 的 key
-    // value 是 mock 实现的路径，true 则使用默认的 mock 实现，见 `src/faker.js`
+    // value 是 mock 实现的路径，true 则使用默认的 mock 实现，见 `src/mock.js`
     // eg:
     ethers: true,
     "@web3modal/ethers$": true,
@@ -36,7 +36,7 @@ module.exports = withSSROptimize({
 })(nextConfig);
 ```
 
-## 工作原理
+## 实现原理
 
 **举个例子**：
 
@@ -52,6 +52,22 @@ module.exports = withSSROptimize({
 
 所以我们可以尝试`mock`这两个依赖的导出，使得业务代码不用做任何更改，同时优化`server`端的性能。
 
+### 如何 mock
+
+通过指定`webpack.resolve.alias`来 mock 依赖。
+
+例如：
+
+在 server 构建时候，webpack 解析到如下代码：
+
+`import { createWeb3Modal } from "@web3modal/ethers/react"`时。
+
+通过 `webpack.resolve.alias` 指定 `@web3modal/ethers/react` 为 `src/mock.js`，
+使其真正参与编译的时候被替换为 `src/mock.js`的实现。
+
+#### 默认 mock 实现
+详见 `src/mock.js`
+
 ## 对比
 
 这里给出部分对比数据，感兴趣可以运行 `example/next-js` 查看。
@@ -65,17 +81,17 @@ module.exports = withSSROptimize({
 
 访问同一页面`next`构建的`module`数量有所下降，即在`server`端没有去构建`@web3modal/ethers`和`ethers`。
 
-
 **memory usage**
 
 冷启动后
+
 - 常规 ![dev](./images/normal-dev-memory-start.png)
 - 优化 ![dev](./images/optimize-dev-memory-start.png)
 
 热更新多次后
+
 - 常规 ![dev](./images/normal-dev-memory-hot-reload.png)
 - 优化 ![dev](./images/optimize-dev-memory-hot-reload.png)
-
 
 ### next build
 

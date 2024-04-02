@@ -1,8 +1,8 @@
 const { describe, it } = require("node:test");
 const assert = require("node:assert");
 
-const { anyProp1 } = require("../../src/faker");
-const defaultFaker = require("../../src/faker");
+const { anyProp1 } = require("../../src/defaultMock");
+const defaultFaker = require("../../src/defaultMock");
 
 // The two tests marked with concurrent will be run in parallel
 describe("faker cjs", () => {

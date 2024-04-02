@@ -1,14 +1,14 @@
 import { ok } from "node:assert";
 import { describe, it } from "node:test";
 
-import pkg from "../../src/faker.js";
+import pkg from "../../src/defaultMock.js";
 const { abc, anyProp1, anyProp2, fn, qwe, useState, zxc } = pkg;
-const defaultFaker = pkg;
+const defaultMock = pkg;
 
 // The two tests marked with concurrent will be run in parallel
 describe("faker mjs", () => {
   it("import not null", async () => {
-    ok(defaultFaker);
+    ok(defaultMock);
     ok(anyProp1);
   });
 

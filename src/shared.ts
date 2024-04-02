@@ -18,7 +18,7 @@ export interface OptimizeOptions {
 
 export const optimizeSSRDeps = (options: OptimizeOptions) => {
   const { config, deps } = options;
-  const defaultFaker = require.resolve("./faker");
+  const defaultFaker = require.resolve("./mock");
 
   if (!config.resolve) {
     config.resolve = {
