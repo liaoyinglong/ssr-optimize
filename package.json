@@ -1,6 +1,6 @@
 {
   "name": "ssr-optimize",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Reduce the number of libraries referenced by server-side rendering to decrease memory usage.",
   "keywords": [
     "ssr",
