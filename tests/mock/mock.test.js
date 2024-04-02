@@ -1,7 +1,8 @@
 const { describe, it } = require("node:test");
 const assert = require("node:assert");
+const { ok } = require("node:assert");
 
-const { anyProp1 } = require("../../src/mock");
+const { anyProp1, AnyClass } = require("../../src/mock");
 const defaultMock = require("../../src/mock");
 
 // The two tests marked with concurrent will be run in parallel
@@ -30,5 +31,11 @@ describe("mock cjs", () => {
     assert.ok(defaultMock.zxc.useState());
     assert.ok(anyProp1.useState());
     assert.ok(anyProp1.cxz.useState());
+  });
+
+  it("use as class", () => {
+    ok(AnyClass);
+    ok(new AnyClass());
+    ok(new defaultMock());
   });
 });

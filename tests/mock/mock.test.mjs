@@ -2,7 +2,7 @@ import { ok } from "node:assert";
 import { describe, it } from "node:test";
 
 import pkg from "../../src/mock.js";
-const { abc, anyProp1, anyProp2, fn, qwe, useState, zxc } = pkg;
+const { abc, anyProp1, anyProp2, fn, qwe, useState, zxc, AnyClass } = pkg;
 const defaultMock = pkg;
 
 // The two tests marked with concurrent will be run in parallel
@@ -31,5 +31,11 @@ describe("mock mjs", () => {
     ok(zxc.useState());
     ok(anyProp1.useState());
     ok(anyProp1.cxz.useState());
+  });
+
+  it("use as class", () => {
+    ok(AnyClass);
+    ok(new AnyClass());
+    ok(new defaultMock());
   });
 });
