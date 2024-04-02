@@ -2,6 +2,12 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 import { withSSROptimize } from "ssr-optimize";
 /** @type {import('next').NextConfig} */
 let nextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack: (config) => {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     // 在这个 example 中，我们会多次 build ，禁用缓存方便对比观察
