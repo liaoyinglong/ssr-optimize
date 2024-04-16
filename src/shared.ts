@@ -39,7 +39,7 @@ export const optimizeSSRDeps = (options: OptimizeOptions) => {
   });
 
   logOnce(`
-  ⚡ these package not need import in server, use mocked instead and can make more fast in server:
+  ⚡ these packages do not need to be imported into the server bundle, use mocked instead and can make it faster in the server:
 ${pkgs}`);
 };
 
